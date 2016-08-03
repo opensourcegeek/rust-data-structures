@@ -2,11 +2,11 @@ mod stack;
 
 fn main() {
     //println!("Hello, world!");
-    let mut a = stack::new();
+    let mut a = stack::new::<i32>();
 
     a.push(1);
     a.push(2);
-    
+
     a.print();
 
     let poppedItem = a.pop();

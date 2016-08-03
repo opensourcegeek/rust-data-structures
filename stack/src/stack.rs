@@ -1,24 +1,26 @@
+use std::fmt::Display;
+
 /**
 Stack declaration - structs don't need to be mutable ref as
 they inherit mut/immutability from caller
 http://stackoverflow.com/questions/29598264/returning-a-struct-containing-mutable-values
 */
 
-pub struct Stack {
-    pub data: Vec<i32>
+pub struct Stack<T> {
+    pub data: Vec<T>
 }
 
 
 /**
 Stack methods
 */
-impl Stack {
-    pub fn push(&mut self, item: i32) -> () {
+impl<T: Display> Stack<T> {
+    pub fn push(&mut self, item: T) -> () {
         let mut d = &mut self.data;
         d.push(item);
     }
 
-    pub fn pop(&mut self) -> Option<i32> {
+    pub fn pop(&mut self) -> Option<T> {
         let mut d = &mut self.data;
         d.pop()
     }
@@ -30,8 +32,8 @@ impl Stack {
     }
 }
 
-pub fn new() -> Stack {
-    let vec: Vec<i32> = Vec::new();
+pub fn new<T>() -> Stack<T> {
+    let vec: Vec<T> = Vec::new();
     let s = Stack {
         data: vec
     };
