@@ -1,7 +1,14 @@
 mod stack;
 
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
 fn main() {
     //println!("Hello, world!");
+    let ret = add(1, 2);
+    println!("Add: {}", ret);
+    
     let mut a = stack::new::<i32>();
 
     a.push(1);
